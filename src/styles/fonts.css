@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "Suisse";
+  font-display: swap;
+  src: local(Suisse),
+    url("../assets/fonts/SuisseIntl-Regular.woff2") format("woff2"),
+    url("../assets/fonts/SuisseIntl-Regular.woff") format("woff");
+  font-weight: 400;
+}

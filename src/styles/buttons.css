@@ -1,0 +1,21 @@
+.btn-icon {
+  background-color: theme(colors.black);
+  color: theme(colors.primary);
+  display: flex;
+  gap: 2.865vw;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.677vw 0.938vw;
+  @apply transition-colors;
+
+  svg {
+    @apply transition-transform;
+  }
+
+  &:hover {
+    background-color: theme(colors.muted);
+    svg{
+      transform: translateX(10px);
+    }
+  }
+}

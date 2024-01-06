@@ -1,0 +1,29 @@
+.root,
+html,
+body {
+  height: 100%;
+
+}
+
+body {
+  font-family: "Suisse";
+  font-size: theme(fontSize.regular);
+  color: theme(colors.black);
+}
+
+img,
+svg {
+  height: auto;
+  width: 100%;
+}
+
+a {
+  @apply transition-colors;
+  &:hover {
+    color: theme(colors.muted);
+  }
+}
+
+a,p{
+  @apply leading-tight;
+}
