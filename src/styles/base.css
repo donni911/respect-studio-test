@@ -2,7 +2,6 @@
 html,
 body {
   height: 100%;
-
 }
 
 body {
@@ -24,6 +23,26 @@ a {
   }
 }
 
-a,p{
+a,
+p {
   @apply leading-tight;
+}
+
+input:focus-visible {
+  outline: none;
+  color: theme(colors.primary);
+}
+
+::placeholder {
+  color: red;
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  color: red;
+}
+
+::selection {
+  background-color: theme(colors.black);
+  color: theme(colors.primary);
 }

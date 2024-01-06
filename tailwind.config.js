@@ -27,6 +27,7 @@ export default {
         md: "1.979vw",
         lg: "3.125vw",
         xl: "3.646vw",
+        sxl:'4.271vw',
         xxl: "5.8333vw",
         xxxl: "7.031vw",
       },
