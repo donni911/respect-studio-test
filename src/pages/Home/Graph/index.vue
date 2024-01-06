@@ -3,7 +3,7 @@
     class="relative py-[5.469vw] px-[1.041vw] min-h-[37.500vw]"
   >
     <div class="max-w-[66.406vw]">
-      <h2 class="text-xl leading-[96%]">
+      <h2 class="text-xl leading-baseLg">
         Consitent leads flow to streamline Your business growth.
       </h2>
     </div>

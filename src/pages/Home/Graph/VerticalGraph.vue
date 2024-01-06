@@ -1,6 +1,6 @@
 <template>
   <div class="h-[35.521vw] pt-[2.865vw]">
-    <p class="max-w-[30.208vw]">
+    <p class="absolute max-w-[30.208vw]">
       We combine disruptive marketing techniques with proven tech solutions to
       provide maximum business value.
     </p>
@@ -12,11 +12,7 @@
         <p class="text-primary text-sm mb-[0.521vw] text-center">
           {{ item }}
         </p>
-        <div
-          :key="item"
-          :style="`height:${item}%`"
-          class="bg-primary"
-        ></div>
+        <div :key="item" :style="`height:${item}%`" class="bg-primary"></div>
       </div>
     </div>
   </div>

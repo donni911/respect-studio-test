@@ -1,23 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 
 // vw - based from design ( min-screens should be in px )
-// calculation -- (px in design) / (width of screen) * 100% 
+// calculation -- (px in design) / (width of screen) * 100%
 // https://web-development.space/tools/px-to-vw/
 
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.vue",
-  ],
+  content: ["./index.html", "./src/**/*.vue"],
   theme: {
     colors: {
       primary: "#E63E3A",
       black: "#101820",
-      'muted':'#5D646B'
+      muted: "#5D646B",
     },
     extend: {
+      lineHeight: {
+        baseLg: "96%",
+      },
+      fill: {
+        black: "#101820",
+      },
       fontSize: {
-        xs:'0.677vw',
+        xs: "0.677vw",
         base: "0.8333vw",
         sm: "0.9375vw",
         regular: "1.146vw",
@@ -27,9 +30,12 @@ export default {
         xxl: "5.8333vw",
         xxxl: "7.031vw",
       },
+      transition:{
+        
+      }
     },
   },
-  extends:{
+  extends: {
     colors: {
       primary: "#E63E3A",
       black: "#101820",
