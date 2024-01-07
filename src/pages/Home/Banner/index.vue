@@ -1,7 +1,14 @@
 <template>
-  <section class="absolute top-0 h-full w-full z-[-1] overflow-hidden">
+  <section
+    class="fixed top-0 h-[calc(100vh-4.531vw)] w-full z-[-1] overflow-hidden"
+  >
     <div class="absolute inset-0">
-      <img src="/images/team/team.jpg" alt="team" class="object-cover h-full min-h-[37.500vw]" />
+      <img
+        ref="image"
+        src="/images/team/team.jpg"
+        alt="team"
+        class="object-cover h-full min-h-[37.500vw]"
+      />
     </div>
     <div class="absolute inset-0">
       <div class="absolute top-[1.042vw] left-[1.042vw]">
@@ -76,5 +83,34 @@
   </section>
 </template>
 <script>
-export default {};
+import { gsap } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
+export default {
+  methods: {
+    initImageAnimation() {
+      gsap.fromTo(
+        this.$refs.image,
+        { scaleX: 1 },
+        { scaleX: -1, duration: 1, repeat: -1, yoyo: true },
+        "<"
+      );
+    },
+    initScroll() {
+      gsap.to(this.$el, {
+        opacity: 0,
+        scrollTrigger: {
+          trigger: this.$el,
+          end: "top",
+          scrub: true,
+        },
+      });
+    },
+  },
+  mounted() {
+    this.initScroll();
+    // this.initImageAnimation();
+  },
+};
 </script>

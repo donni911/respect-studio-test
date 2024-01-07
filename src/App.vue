@@ -1,21 +1,25 @@
 <template>
-  <Banner />
-  <main class="mt-[calc(100vh-4.531vw)]">
-    <Header />
-    <BigDescription />
-    <Graph />
-    <Partner />
-    <Contact />
-    <Leads />
-    <CaseStudies />
-    <Quality />
-    <About />
-  </main>
+  <div ref="transform">
+    <Banner />
+    <main class="mt-[calc(100vh-4.531vw)]">
+      <Header />
+      <BigDescription />
+      <Graph />
+      <Partner />
+      <Contact />
+      <Leads />
+      <CaseStudies />
+      <Quality />
+      <About />
+    </main>
+  </div>
   <Footer />
-  <Loader />
+  <!-- <Loader /> -->
 </template>
 
 <script>
+import gsap from "gsap";
+
 import Header from "./components/Header.vue";
 import Banner from "./pages/Home/Banner/index.vue";
 import BigDescription from "./pages/Home/BigDescription/index.vue";
@@ -43,6 +47,17 @@ export default {
     About,
     Footer,
     Loader,
+  },
+  mounted() {
+    gsap.fromTo(
+      this.$refs.transform,
+      {
+        translateY: "10%",
+      },
+      {
+        translateY: "0%",
+      }
+    );
   },
 };
 </script>

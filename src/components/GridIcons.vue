@@ -45,7 +45,7 @@ export default {
   mounted() {
     ScrollTrigger.create({
       trigger: this.$el,
-      start: "top 80% bottom 80%",
+      start: "top 80%",
       onEnter: () => {
         const timeline = gsap.timeline({
           paused: true,

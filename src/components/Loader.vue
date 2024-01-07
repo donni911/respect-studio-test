@@ -36,6 +36,7 @@
           d="M307.821 4.70898H316.061V16.936H325.298V23.545H316.061V52.435C316.061 57.505 316.423 58.773 321.131 58.773H325.298V65.657H319.321C309.994 65.657 307.821 63.574 307.821 53.433V23.545H300.121V16.936H307.821V4.70898Z"
           fill="#E63E3A"
         />
+
         <path
           d="M89.558 112.074C89.558 123.94 84.2161 134.351 71.6281 136.974V128.008C79.1441 125.835 81.7711 118.228 81.7711 111.708C81.7711 106.637 79.5061 97.7599 72.1711 97.7599C66.3711 97.7599 63.4771 102.289 62.1191 108.449L60.3981 116.055C58.2241 126.106 54.4211 138.155 41.1981 138.155C28.4291 138.155 21.5461 126.201 21.5461 113.162C21.5461 97.6758 30.0591 87.8939 43.0991 86.1729V95.2289C34.0431 96.9499 29.3331 103.2 29.3331 113.341C29.3331 123.121 33.8611 128.648 40.3821 128.648C47.3551 128.648 50.0721 122.669 51.9741 114.517L53.6951 106.367C55.6871 97.3129 60.7591 88.3459 71.6251 88.3459C84.2161 88.3469 89.558 101.479 89.558 112.074Z"
           fill="#E63E3A"
@@ -87,11 +88,39 @@ export default {
   },
 
   methods: {
-    animateNumbers() {
-      const duration = 0.7;
+    animateSvg() {
+      const paths = this.$refs.svgIcon.querySelectorAll("path");
+      const firstGroup = Array.from(paths).slice(0, 7);
+      const lastPath = paths[paths.length - 1];
+      const secondGroup = Array.from(paths).slice(7, 13);
 
+      this.animateOpacity(firstGroup);
+      this.animateOpacity(lastPath);
+      this.animateOpacity(secondGroup, () => this.handleLoadedPage());
+    },
+
+    animateOpacity(targets, fn) {
+      gsap.fromTo(
+        targets,
+        {
+          opacity: 0,
+        },
+        {
+          duration: 0.5,
+          stagger: 0.1,
+          opacity: 1,
+          ease: "linear",
+          onComplete: () => {
+            if (fn) fn();
+          },
+        },
+        0
+      );
+    },
+
+    animateNumbers() {
       gsap.to(this.$refs.numberSpan, {
-        duration: duration,
+        duration: 0.5,
         text: this.nums[this.currentNumIndex],
         ease: "power1.inOut",
         onComplete: () => {
@@ -101,10 +130,11 @@ export default {
           if (this.currentNumIndex === this.nums.length) {
             this.currentNumIndex = 0;
             this.isVisible = false;
-            this.handleLoadedPage();
+            // this.animateSvg();
+            this.handleLoadedPage()
+          } else {
+            this.animateNumbers();
           }
-
-          this.animateNumbers();
         },
       });
     },
