@@ -29,3 +29,28 @@
     border-color: theme(colors.black);
   }
 }
+
+.btn-icon--primary {
+  background-color: theme(colors.primary);
+  border: 1px solid theme(colors.primary);
+  color: theme(colors.black);
+
+  svg {
+    @apply transition-transform;
+    path {
+      fill: theme(colors.black);
+    }
+  }
+
+  &:hover {
+    background-color: transparent;
+    border-color: theme(colors.primary);
+    color: theme(colors.primary);
+
+    svg {
+      path {
+        fill: theme(colors.primary);
+      }
+    }
+  }
+}

@@ -8,7 +8,11 @@
     <Contact />
     <Leads />
     <CaseStudies />
+    <Quality />
+    <About />
   </main>
+  <Footer />
+  <Loader />
 </template>
 
 <script>
@@ -20,6 +24,10 @@ import Partner from "./pages/Home/Partner/index.vue";
 import Contact from "./pages/Home/Contact/index.vue";
 import Leads from "./pages/Home/Leads/index.vue";
 import CaseStudies from "./pages/Home/CaseStudies/index.vue";
+import Quality from "./pages/Home/Quality/index.vue";
+import About from "./pages/Home/About/index.vue";
+import Footer from "./components/Footer.vue";
+import Loader from "./components/Loader.vue";
 
 export default {
   components: {
@@ -31,6 +39,10 @@ export default {
     Contact,
     Leads,
     CaseStudies,
+    Quality,
+    About,
+    Footer,
+    Loader,
   },
 };
 </script>

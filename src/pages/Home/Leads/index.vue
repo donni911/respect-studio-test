@@ -9,77 +9,43 @@
         top-performing companies
       </p>
     </div>
-    <div>
-      <div class="h-[0.052vw] bg-primary w-full"></div>
-      <div class="grid grid-cols-5">
-        <div class="relative min-h-[12.604vw]">
-          <div class="w-[0.052vw] bg-primary h-full absolute left-0"></div>
-          <div
-            class="h-full flex items-center justify-center"
-          >
-            <img
-              class="w-auto h-auto object-contain max-w-[8.333vw]"
-              src="../../../assets/svg/leads/sap.svg"
-              alt=""
-            />
-          </div>
-        </div>
-        <div class="relative min-h-[12.604vw]">
-          <div class="w-[0.052vw] bg-primary h-full absolute left-0"></div>
-          <div
-            class="h-full flex items-center justify-center"
-          >
-            <img
-              class="w-auto h-auto object-contain max-w-[8.333vw]"
-              src="../../../assets/svg/leads/bayer.svg"
-              alt=""
-            />
-          </div>
-        </div>
-        <div class="relative min-h-[12.604vw]">
-          <div class="w-[0.052vw] bg-primary h-full absolute left-0"></div>
-          <div
-            class="h-full flex items-center justify-center"
-          >
-            <img
-              class="w-auto h-auto object-contain max-w-[8.333vw]"
-              src="../../../assets/svg/leads/office365.svg"
-              alt=""
-            />
-          </div>
-        </div>
-        <div class="relative min-h-[12.604vw]">
-          <div class="w-[0.052vw] bg-primary h-full absolute left-0"></div>
-          <div
-            class="h-full flex items-center justify-center"
-          >
-            <img
-              class="w-auto h-auto object-contain max-w-[8.333vw]"
-              src="../../../assets/svg/leads/salesforce.svg"
-              alt=""
-            />
-          </div>
-        </div>
-        <div class="relative min-h-[12.604vw]">
-          <div class="w-[0.052vw] bg-primary h-full absolute left-0"></div>
-          <div
-            class="h-full flex items-center justify-center"
-          >
-            <img
-              class="w-auto h-auto object-contain max-w-[8.333vw]"
-              src="../../../assets/svg/leads/hp.svg"
-              alt=""
-            />
-          </div>
-          <div
-            class="w-[0.052vw] bg-primary h-full absolute right-0 top-0"
-          ></div>
-        </div>
-      </div>
-      <div class="h-[0.052vw] bg-primary w-full"></div>
-    </div>
+    <GridIcons :color="'primary'" :items="items" />
   </section>
 </template>
+
 <script>
-export default {};
+import GridIcons from "../../../components/GridIcons.vue";
+
+export default {
+  components: {
+    GridIcons,
+  },
+
+  data() {
+    return {
+      items: [
+        {
+          id: 1,
+          img: "/images/leads/sap.svg",
+        },
+        {
+          id: 2,
+          img: "/images/leads/bayer.svg",
+        },
+        {
+          id: 3,
+          img: "/images/leads/office365.svg",
+        },
+        {
+          id: 4,
+          img: "/images/leads/salesforce.svg",
+        },
+        {
+          id: 5,
+          img: "/images/leads/hp.svg",
+        },
+      ],
+    };
+  },
+};
 </script>

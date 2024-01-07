@@ -1,9 +1,10 @@
 <template>
   <div class="flex overflow-hidden relative">
     <div
+      ref="slide1"
       class="w-[65.938vw] overflow-hidden h-[33.854vw] bg-primary text-[#fff] p-[2.083vw]"
     >
-      <div class="h-full flex flex-col">
+      <div class="h-full flex flex-col" ref="slide1-content">
         <div class="pr-[4.167vw] w-[52.865vw]">
           <span>1</span>
           <h3 class="text-lg mt-[0.625vw] mb-[2.604vw]">B2B Marketing</h3>
@@ -68,11 +69,10 @@
       </div>
     </div>
     <div
-      ref="slide-card"
-      class="w-[65.938vw] overflow-hidden h-[33.854vw] bg-black text-[#fff] p-[2.083vw] absolute right-0 translate-x-[50%]
-      group hover:translate-x-[0%] transition-transform ease-in-out duration-700"
+      ref="slide2"
+      class="w-[65.938vw] overflow-hidden h-[33.854vw] bg-black text-[#fff] p-[2.083vw] absolute right-0 translate-x-[50%]"
     >
-      <div class="h-full flex flex-col opacity-30 group-hover:opacity-100 transition-opacity ease-in-out duration-700 will-change-transform">
+      <div ref="slide2-content" class="h-full flex flex-col opacity-30">
         <div class="pr-[4.167vw] w-[52.865vw]">
           <span>2</span>
           <h3 class="text-lg mt-[0.625vw] mb-[2.604vw]">
@@ -147,6 +147,21 @@
   </div>
 </template>
 
-
 <script>
+import gsap from "gsap";
+
+export default {
+  mounted() {
+    gsap.defaults({ ease: "power1.inOut", duration: 0.7 });
+
+    const animation = gsap
+      .timeline({ paused: true })
+      .to(this.$refs["slide1-content"], { opacity: "0.3" }, 0)
+      .to(this.$refs.slide2, { translateX: "0%" }, 0)
+      .to(this.$refs["slide2-content"], { opacity: "1" }, 0);
+
+    this.$refs.slide2.addEventListener("mouseenter", () => animation.play());
+    this.$refs.slide2.addEventListener("mouseleave", () => animation.reverse());
+  },
+};
 </script>

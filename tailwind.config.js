@@ -30,6 +30,7 @@ export default {
         sxl:'4.271vw',
         xxl: "5.8333vw",
         xxxl: "7.031vw",
+        nums: "12.031vw",
       },
       transition:{
         
