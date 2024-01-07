@@ -69,7 +69,7 @@
     </div>
     <div
       ref="slide-card"
-      class="w-[65.938vw] overflow-hidden h-[33.854vw] bg-black text-[#fff] p-[2.083vw] absolute right-0 translate-x-[52.5%]
+      class="w-[65.938vw] overflow-hidden h-[33.854vw] bg-black text-[#fff] p-[2.083vw] absolute right-0 translate-x-[50%]
       group hover:translate-x-[0%] transition-transform ease-in-out duration-700"
     >
       <div class="h-full flex flex-col opacity-30 group-hover:opacity-100 transition-opacity ease-in-out duration-700 will-change-transform">
@@ -146,3 +146,7 @@
     </div>
   </div>
 </template>
+
+
+<script>
+</script>

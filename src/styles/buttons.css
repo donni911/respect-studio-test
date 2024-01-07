@@ -14,8 +14,18 @@
 
   &:hover {
     background-color: theme(colors.muted);
-    svg{
+    svg {
       transform: translateX(10px);
     }
+  }
+}
+
+.btn-icon--ghost {
+  background-color: transparent;
+  border: 1px solid theme(colors.primary);
+
+  &:hover {
+    background-color: theme(colors.black);
+    border-color: theme(colors.black);
   }
 }

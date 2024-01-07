@@ -1,6 +1,6 @@
 <template>
   <section
-    class="px-[1.041vw] py-[7.813vw] min-h-[33.333vw] max-h-[49.740vw] flex"
+    class="px-[1.041vw] py-[7.813vw] min-h-[33.333vw] h-[100vh] flex"
   >
     <div class="w-1/2 relative">
       <div
@@ -13,25 +13,32 @@
       </div>
     </div>
     <div class="w-1/2">
-      <div class="w-[34.063vw] ml-auto">
+      <div class="w-[34.063vw] ml-auto flex flex-col justify-center h-full">
         <div class="pl-[4.583vw] text-right">
           <h4 class="text-sxl mb-3.698vw leading-baseLg">
             Still not sure what service to choose?
           </h4>
           <p class="mt-[3.698vw]">
-            Fill our qualification form to <br> understand which service fits <br> your
-            business needs
+            Fill our qualification form to <br />
+            understand which service fits <br />
+            your business needs
           </p>
         </div>
         <div class="mt-[7.917vw]">
           <div class="h-[0.052vw] bg-primary w-full"></div>
           <div class="px-[1.823vw] py-[0.8vw] flex gap-[2.604vw] items-center">
-            <div class="text-primary flex ">
+            <div class="text-primary flex">
               <span class="leading-baseLg">1</span>
               <span class="text-xs items-start">&nbsp;/&nbsp;5</span>
             </div>
-            <input type="text" class="flex-grow placeholder-primary color-primary" placeholder="Hey! Type your name here" />
-            <button class="w-[3.333vw] h-[3.333vw] px-[1.042vw] py-[1.002vw] hover:translate-x-2 transition-transform">
+            <input
+              type="text"
+              class="flex-grow placeholder-primary color-primary"
+              placeholder="Hey! Type your name here"
+            />
+            <button
+              class="w-[3.333vw] h-[3.333vw] px-[1.042vw] py-[1.002vw] hover:translate-x-2 transition-transform will-change-transform"
+            >
               <svg
                 class="rotate-90 h-full"
                 viewBox="0 0 14 22"

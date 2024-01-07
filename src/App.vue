@@ -6,6 +6,8 @@
     <Graph />
     <Partner />
     <Contact />
+    <Leads />
+    <CaseStudies />
   </main>
 </template>
 
@@ -16,6 +18,8 @@ import BigDescription from "./pages/Home/BigDescription/index.vue";
 import Graph from "./pages/Home/Graph/index.vue";
 import Partner from "./pages/Home/Partner/index.vue";
 import Contact from "./pages/Home/Contact/index.vue";
+import Leads from "./pages/Home/Leads/index.vue";
+import CaseStudies from "./pages/Home/CaseStudies/index.vue";
 
 export default {
   components: {
@@ -24,7 +28,9 @@ export default {
     BigDescription,
     Graph,
     Partner,
-    Contact
+    Contact,
+    Leads,
+    CaseStudies,
   },
 };
 </script>
