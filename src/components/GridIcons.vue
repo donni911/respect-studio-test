@@ -42,10 +42,11 @@ export default {
       images: Array.from({ length: 6 }, (_, index) => `image${index + 1}`),
     };
   },
+
   mounted() {
     ScrollTrigger.create({
       trigger: this.$el,
-      start: "top 80%",
+      start: "top 95%",
       onEnter: () => {
         const timeline = gsap.timeline({
           paused: true,

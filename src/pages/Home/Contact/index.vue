@@ -1,7 +1,5 @@
 <template>
-  <section
-    class="px-[1.041vw] py-[7.813vw] min-h-[33.333vw] h-[100vh] flex"
-  >
+  <section class="px-[1.041vw] py-[7.813vw] min-h-[33.333vw] h-[100vh] flex">
     <div class="w-1/2 relative">
       <div
         v-for="(item, index) in images"
@@ -15,16 +13,16 @@
     <div class="w-1/2">
       <div class="w-[34.063vw] ml-auto flex flex-col justify-center h-full">
         <div class="pl-[4.583vw] text-right">
-          <h4 class="text-sxl mb-3.698vw leading-baseLg">
+          <h4 class="inline-flex flex-wrap justify-end text-sxl mb-3.698vw leading-baseLg" ref="title">
             Still not sure what service to choose?
           </h4>
-          <p class="mt-[3.698vw]">
+          <p class="mt-[3.698vw]" ref="description">
             Fill our qualification form to <br />
             understand which service fits <br />
             your business needs
           </p>
         </div>
-        <div class="mt-[7.917vw]">
+        <div class="mt-[7.917vw]" ref="inputBlock">
           <div class="h-[0.052vw] bg-primary w-full"></div>
           <div class="px-[1.823vw] py-[0.8vw] flex gap-[2.604vw] items-center">
             <div class="text-primary flex">
@@ -58,7 +56,10 @@
     </div>
   </section>
 </template>
+
 <script>
+import { revealByLetters, fadeIn } from "@/animations/textReveal.js";
+
 export default {
   methods: {
     imagePosition(id) {
@@ -89,6 +90,12 @@ export default {
         },
       ],
     };
+  },
+
+  mounted() {
+    revealByLetters(this.$refs.title);
+    fadeIn(this.$refs.inputBlock);
+    fadeIn(this.$refs.description);
   },
 };
 </script>

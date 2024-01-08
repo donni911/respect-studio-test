@@ -1,16 +1,19 @@
 <template>
   <section class="px-[1.041vw] pb-[2.604vw] flex justify-between items-center">
     <div class="max-w-[41.146vw] flex flex-col">
-      <h2 class="text-sxl leading-baseLg mb-[3.906vw]">
+      <h2
+        class="text-sxl leading-baseLg mb-[3.906vw] inline-flex flex-wrap"
+        ref="title"
+      >
         Our team of top talents has a perfect blend of data and creativity
       </h2>
-      <p class="max-w-[22vw]">
+      <p class="max-w-[22vw]" ref="description">
         We've gathered experienced pros that thrive in the dynamic digital
         market. <br />
         Growth and excellence are our fuel to provide commitment and deliver
         success.
       </p>
-      <div class="flex gap-[1.667vw] items-center mt-[3.125vw]">
+      <div class="flex gap-[1.667vw] items-center mt-[3.125vw]" ref="btns">
         <a href="#" class="btn-icon btn-icon--primary h-[2.656vw]">
           <div>
             <svg
@@ -27,7 +30,10 @@
           </div>
           <span>About us</span>
         </a>
-        <a href="#" class="decoration-primary underline text-primary hover:decoration-muted">
+        <a
+          href="#"
+          class="decoration-primary underline text-primary hover:decoration-muted"
+        >
           Career Page
         </a>
       </div>
@@ -42,5 +48,13 @@
   </section>
 </template>
 <script>
-export default {};
+import { fadeIn, revealByLetters } from "@/animations/textReveal.js";
+
+export default {
+  mounted() {
+    revealByLetters(this.$refs.title);
+    fadeIn(this.$refs.subtitle);
+    fadeIn(this.$refs.description);
+  },
+};
 </script>

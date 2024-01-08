@@ -1,10 +1,11 @@
 <template>
   <section class="px-[1.041vw] pb-[4.844vw]">
     <div class="mb-[5.208vw]">
-      <h2 class="leading-baseLg text-sxl mb-[3.438vw]">
-        Let's fight cold <span class="text-primary"> together</span>
+      <!-- TODO: inherit span -->
+      <h2 class="leading-baseLg text-sxl mb-[3.438vw] inline-flex" ref="title">
+        Let's fight cold <span class="text-primary">together</span>
       </h2>
-      <p>
+      <p ref="description">
         We generated leads from <br />
         top-performing companies
       </p>
@@ -15,6 +16,7 @@
 
 <script>
 import GridIcons from "../../../components/GridIcons.vue";
+import { fadeIn, revealByWords } from "@/animations/textReveal.js";
 
 export default {
   components: {
@@ -46,6 +48,11 @@ export default {
         },
       ],
     };
+  },
+
+  mounted() {
+    revealByWords(this.$refs.title);
+    fadeIn(this.$refs.description);
   },
 };
 </script>

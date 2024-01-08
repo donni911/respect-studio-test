@@ -4,10 +4,11 @@
       v-for="(item, index) in horizontalGraphData"
       :key="index"
       :ref="`item${index}`"
-      class="p-[0.625vw_2.083vw] bg-black h-[4.844vw]"
+      class="bg-black h-[4.844vw]"
+      :style="`margin-left:${item.marginLeft}%;`"
     >
       <div
-        class="text-primary h-full flex gap-[1.042vw]"
+        class="p-[0.625vw_2.083vw] text-primary h-full flex gap-[1.042vw] opacity-0"
         :ref="`item-decription${index}`"
       >
         <p
@@ -44,35 +45,40 @@ export default {
 
     animateGraph() {
       this.horizontalGraphData.forEach((item, index) => {
-        gsap
-          .fromTo(
-            this.$refs[`item${index}`],
-            {
-              width: 0,
+        gsap.fromTo(
+          this.$refs[`item${index}`],
+          {
+            width: 0,
+            visibility: "hidden",
+          },
+          {
+            visibility: "visible",
+            scrollTrigger: {
+              trigger: this.$el,
+              start: "top 90%",
+              end: "bottom bottom",
             },
-            {
-              scrollTrigger: {
-                trigger: this.$el,
-                start: "top 65%",
-                end: "bottom bottom",
-              },
-              width: `${item.width}%`,
-              duration: 0.5,
-              ease: "power1.inOut",
-              delay: 0.01 * index,
-            }
-          )
-          gsap.fromTo(
-            this.$refs[`item-decription${index}`],
-            {
-              opacity: 0,
+            width: `${item.width}%`,
+            duration: 0.7,
+            ease: "power1.inOut",
+            delay: 0.2 * index,
+
+            onComplete: () => {
+              gsap.fromTo(
+                this.$refs[`item-decription${index}`],
+                {
+                  opacity: 0,
+                  xPercent: -10,
+                },
+                {
+                  duration: 0.7,
+                  xPercent: 0,
+                  opacity: 1,
+                }
+              );
             },
-            {
-              duration: 2,
-              delay: 0.01 * index,
-              opacity: 1,
-            }
-          );
+          }
+        );
       });
     },
   },

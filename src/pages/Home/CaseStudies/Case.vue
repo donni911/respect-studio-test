@@ -6,9 +6,9 @@
       ref="image"
       :src="data.image"
       :alt="data.image"
-      class="absolute inset-0 object-cover w-full h-full translate-y-[-100%] z-[-1]"
+      class="absolute inset-0 object-cover w-full h-full translate-y-[-100%] z-[1]"
     />
-    <div class="flex justify-between text-black" ref="text">
+    <div class="flex relative z-[2] justify-between text-black" ref="text">
       <div ref="slide">
         <div class="max-w-[23.958vw]">
           <p

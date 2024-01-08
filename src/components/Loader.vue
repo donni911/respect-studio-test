@@ -90,7 +90,6 @@
 </template>
 
 <script>
-
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 
@@ -166,10 +165,14 @@ export default {
         gsap.to(this.$el, {
           translateY: "-100%",
         });
+
         document.body.style.overflowY = "auto";
+
+        this.$emit("pageLoaded", true);
       }
     },
   },
+
   mounted() {
     this.animateNumbers();
   },

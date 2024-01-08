@@ -70,7 +70,7 @@
     </div>
     <div
       ref="slide2"
-      class="w-[65.938vw] overflow-hidden h-[33.854vw] bg-black text-[#fff] p-[2.083vw] absolute right-0 translate-x-[50%]"
+      class="w-[65.938vw] overflow-hidden h-[33.854vw] bg-black text-[#fff] p-[2.083vw] absolute right-0"
     >
       <div ref="slide2-content" class="h-full flex flex-col opacity-30">
         <div class="pr-[4.167vw] w-[52.865vw]">
@@ -149,19 +149,33 @@
 
 <script>
 import gsap from "gsap";
+import { fadeIn } from "@/animations/textReveal.js";
 
 export default {
+  methods: {
+    animateSlide() {
+      gsap.defaults({ ease: "power1.inOut", duration: 0.7 });
+
+      const animation = gsap
+        .timeline({ paused: true })
+        .to(this.$refs["slide1-content"], { opacity: "0.3" }, 0)
+        .fromTo(
+          this.$refs.slide2,
+          { translateX: "52%" },
+          { translateX: "0%" },
+          0
+        )
+        .to(this.$refs["slide2-content"], { opacity: "1" }, 0);
+
+      this.$refs.slide2.addEventListener("mouseenter", () => animation.play());
+      this.$refs.slide2.addEventListener("mouseleave", () =>
+        animation.reverse()
+      );
+    },
+  },
   mounted() {
-    gsap.defaults({ ease: "power1.inOut", duration: 0.7 });
-
-    const animation = gsap
-      .timeline({ paused: true })
-      .to(this.$refs["slide1-content"], { opacity: "0.3" }, 0)
-      .to(this.$refs.slide2, { translateX: "0%" }, 0)
-      .to(this.$refs["slide2-content"], { opacity: "1" }, 0);
-
-    this.$refs.slide2.addEventListener("mouseenter", () => animation.play());
-    this.$refs.slide2.addEventListener("mouseleave", () => animation.reverse());
+    this.animateSlide();
+    fadeIn(this.$el, 0.5);
   },
 };
 </script>

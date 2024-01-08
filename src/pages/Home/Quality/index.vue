@@ -4,7 +4,7 @@
   >
     <div class="flex justify-between gap-[1vw]">
       <div class="relative max-w-[22.917vw] flex flex-col gap-[6.333vw]">
-        <div class="flex items-center gap-[0.677vw]">
+        <div class="flex items-center gap-[0.677vw]" ref="icons">
           <div class="w-[5.208vw]">
             <img src="/images/common/goodfirms.svg" alt="" />
           </div>
@@ -12,13 +12,13 @@
             <img src="/images/common/upwork.svg" alt="" />
           </div>
         </div>
-        <p>
+        <p ref="description">
           Only a truly sophisticated strategy can help your company succeed.
           Perfect balance is in utilizing marketing channels without creating
           informational noise.
         </p>
       </div>
-      <div class="w-[25.521vw] relative text-sxl leading-baseLg">
+      <div class="w-[25.521vw] relative text-sxl leading-baseLg inline-flex flex-wrap justify-end" ref="title">
         Quality approach to
         <span class="text-primary"> growing your business </span>
       </div>
@@ -28,6 +28,7 @@
 </template>
 <script>
 import GridIcons from "../../../components/GridIcons.vue";
+import { fadeIn, revealByLetters } from "@/animations/textReveal.js";
 
 export default {
   components: {
@@ -55,6 +56,12 @@ export default {
         },
       ],
     };
+  },
+
+  mounted() {
+    revealByLetters(this.$refs.title);
+    fadeIn(this.$refs.icons);
+    fadeIn(this.$refs.description);
   },
 };
 </script>

@@ -2,13 +2,15 @@
   <section class="px-[1.041vw]">
     <div class="flex justify-between pb-[5.052vw]">
       <div class="">
-        <h2 class="text-xxxl leading-baseLg mb-[2.188vw]">
-          Case <br />
-          Studies
+        <h2
+          ref="title"
+          class="text-xxxl inline-flex flex-col leading-baseLg mb-[2.188vw]"
+        >
+          Case Studies
         </h2>
-        <p class="text-primary">Gain efficiency you deserve</p>
+        <p class="text-primary" ref="subtitle">Gain efficiency you deserve</p>
       </div>
-      <div class="max-w-[20.313vw] mr-[11.719vw]">
+      <div class="max-w-[20.313vw] mr-[11.719vw]" ref="description">
         <p class="mb-[2.917vw]">
           Only a truly sophisticated strategy can help your company succeed.
           Perfect balance is in utilizing marketing channels without creating
@@ -39,6 +41,7 @@
 </template>
 <script>
 import Case from "./Case.vue";
+import { fadeIn, revealByLetters } from "@/animations/textReveal.js";
 
 export default {
   components: {
@@ -73,6 +76,12 @@ export default {
         },
       ],
     };
+  },
+
+  mounted() {
+    revealByLetters(this.$refs.title);
+    fadeIn(this.$refs.subtitle);
+    fadeIn(this.$refs.description);
   },
 };
 </script>

@@ -1,5 +1,7 @@
 <template>
-  <footer class="fixed bottom-0 w-full z-[-1] px-[1.041vw] pt-[3.125vw] pb-[1.563vw] bg-black h-[100vh]">
+  <footer
+    class="fixed bottom-0 w-full z-[-1] px-[1.041vw] pt-[3.125vw] pb-[1.563vw] bg-black h-[100vh]"
+  >
     <div class="flex h-full w-full justify-between">
       <div class="flex flex-col justify-between items-start mr-[16.406vw]">
         <div>
@@ -156,6 +158,7 @@
         <div>
           <h2
             class="text-right leading-baseLg text-sxl text-primary mb-[2.083vw]"
+            ref="title"
           >
             Still not sure what service to choose?
           </h2>
@@ -183,5 +186,8 @@
 </template>
 
 <script>
-export default {};
+
+export default {
+  
+};
 </script>

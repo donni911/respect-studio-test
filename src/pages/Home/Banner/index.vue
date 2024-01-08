@@ -84,19 +84,32 @@
 </template>
 
 <script>
+import { translateUp } from "@/animations/transform.js";
 
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
+  props: ["isPageLoaded"],
+
+  watch: {
+    isPageLoaded(newVal) {
+      if (newVal) {
+        this.initImageAnimation();
+        translateUp(this.$el);
+      }
+    },
+  },
+
   methods: {
     initImageAnimation() {
       gsap.to(this.$refs.image, {
         scaleX: -1,
-        duration:2,
+        delay: 1,
+        duration: 3,
         ease: "steps(1)",
-        repeat:-1
+        repeat: -1,
       });
     },
 

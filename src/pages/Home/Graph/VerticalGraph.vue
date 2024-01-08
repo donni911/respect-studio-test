@@ -37,7 +37,6 @@ export default {
               trigger: this.$el,
               start: "top 65%",
               end: "bottom bottom",
-              markers: true,
             },
             height: `${item}%`,
             duration: 0.5,

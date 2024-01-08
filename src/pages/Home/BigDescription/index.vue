@@ -3,8 +3,11 @@
     class="relative min-h-[37.500vw] h-[calc(100vh-4.531vw)] bg-primary pt-[3.854vw] pb-[9.896vw] px-[1.041vw]"
   >
     <div class="max-w-[43.490vw] ml-auto">
-      <h1 class="text-xxxl leading-baseLg text-right inline-flex flex-wrap justify-end" ref="title">
-        Growing businesses by &nbsp; building relationships
+      <h1
+        class="text-xxxl leading-baseLg text-right inline-flex flex-wrap justify-end"
+        ref="title"
+      >
+        Growing businesses by building relationships
       </h1>
     </div>
     <div>
@@ -17,30 +20,11 @@
 </template>
 
 <script>
-import gsap from "gsap";
+import { revealByLetters } from "@/animations/textReveal.js";
 
 export default {
   mounted() {
-    const titleChars = this.$refs.title.textContent.trim().split(" ");
-    this.$refs.title.innerHTML = titleChars
-      .map((char) => `<span>${char}</span>`)
-      .join("");
-
-
-    gsap.fromTo(
-      this.$refs.title.children,
-      { opacity: 0},
-      {
-        opacity: 1,
-        stagger: 0.02,
-        scrollTrigger: {
-          trigger: this.$el,
-          // scrub: 1,
-          start: "top 80%",
-          end: "bottom bottom",
-        },
-      }
-    );
+    revealByLetters(this.$refs.title);
   },
 };
 </script>

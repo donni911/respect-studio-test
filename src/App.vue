@@ -1,7 +1,6 @@
 <template>
-  <!-- <div ref="transform"> -->
-  <Banner />
-  <main class="mt-[calc(100vh-4.531vw)] mb-[100vh]">
+  <!-- <Banner :isPageLoaded="isPageLoaded" />-->
+  <main ref="mainSection" class="mt-[calc(100vh-4.531vw)] mb-[100vh]">
     <Header />
     <BigDescription />
     <Graph />
@@ -12,13 +11,14 @@
     <Quality />
     <About />
   </main>
-  <!-- </div> -->
-  <Footer />
-  <!-- <Loader /> -->
+  <!-- <Footer /> -->
+  <!-- <Loader @pageLoaded="pageLoaded" />-->
 </template>
 
+<!-- TODO: 1)images on scroll 2) footer 3) reveal by words inheritance 4) check all-->
+
 <script>
-import gsap from "gsap";
+import { translateUp } from "@/animations/transform.js";
 
 import Header from "./components/Header.vue";
 import Banner from "./pages/Home/Banner/index.vue";
@@ -48,16 +48,19 @@ export default {
     Footer,
     Loader,
   },
-  mounted() {
-    // gsap.fromTo(
-    //   this.$refs.transform,
-    //   {
-    //     translateY: "10%",
-    //   },
-    //   {
-    //     translateY: "0%",
-    //   }
-    // );
+
+  data() {
+    return {
+      isPageLoaded: false,
+    };
+  },
+
+  methods: {
+    pageLoaded(val) {
+      this.isPageLoaded = val;
+
+      translateUp(this.$refs.mainSection);
+    },
   },
 };
 </script>
