@@ -82,7 +82,9 @@
     </div>
   </section>
 </template>
+
 <script>
+
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -90,22 +92,30 @@ gsap.registerPlugin(ScrollTrigger);
 export default {
   methods: {
     initImageAnimation() {
-      gsap.fromTo(
-        this.$refs.image,
-        { scaleX: 1 },
-        { scaleX: -1, duration: 1, repeat: -1, yoyo: true },
-        "<"
-      );
-    },
-    initScroll() {
-      gsap.to(this.$el, {
-        opacity: 0,
-        scrollTrigger: {
-          trigger: this.$el,
-          end: "top",
-          scrub: true,
-        },
+      gsap.to(this.$refs.image, {
+        scaleX: -1,
+        duration:2,
+        ease: "steps(1)",
+        repeat:-1
       });
+    },
+
+    initScroll() {
+      gsap.fromTo(
+        this.$el,
+        {
+          opacity: 1,
+        },
+        {
+          opacity: 0,
+          scrollTrigger: {
+            trigger: this.$el,
+            start: "top top",
+            end: () => "+=" + this.$el.offsetHeight,
+            scrub: true,
+          },
+        }
+      );
     },
   },
   mounted() {

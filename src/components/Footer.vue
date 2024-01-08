@@ -1,6 +1,6 @@
 <template>
-  <footer class="px-[1.041vw] pt-[3.125vw] pb-[1.563vw] bg-black h-[100vh]">
-    <div class="flex h-full justify-between">
+  <footer class="fixed bottom-0 w-full z-[-1] px-[1.041vw] pt-[3.125vw] pb-[1.563vw] bg-black h-[100vh]">
+    <div class="flex h-full w-full justify-between">
       <div class="flex flex-col justify-between items-start mr-[16.406vw]">
         <div>
           <p class="text-primary">Digital Marketing <br />Agency</p>
@@ -181,6 +181,7 @@
     </div>
   </footer>
 </template>
+
 <script>
 export default {};
 </script>

@@ -1,18 +1,18 @@
 <template>
-  <div ref="transform">
-    <Banner />
-    <main class="mt-[calc(100vh-4.531vw)]">
-      <Header />
-      <BigDescription />
-      <Graph />
-      <Partner />
-      <Contact />
-      <Leads />
-      <CaseStudies />
-      <Quality />
-      <About />
-    </main>
-  </div>
+  <!-- <div ref="transform"> -->
+  <Banner />
+  <main class="mt-[calc(100vh-4.531vw)] mb-[100vh]">
+    <Header />
+    <BigDescription />
+    <Graph />
+    <Partner />
+    <Contact />
+    <Leads />
+    <CaseStudies />
+    <Quality />
+    <About />
+  </main>
+  <!-- </div> -->
   <Footer />
   <!-- <Loader /> -->
 </template>
@@ -49,15 +49,15 @@ export default {
     Loader,
   },
   mounted() {
-    gsap.fromTo(
-      this.$refs.transform,
-      {
-        translateY: "10%",
-      },
-      {
-        translateY: "0%",
-      }
-    );
+    // gsap.fromTo(
+    //   this.$refs.transform,
+    //   {
+    //     translateY: "10%",
+    //   },
+    //   {
+    //     translateY: "0%",
+    //   }
+    // );
   },
 };
 </script>

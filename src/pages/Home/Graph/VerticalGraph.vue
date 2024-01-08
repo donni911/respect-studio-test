@@ -24,9 +24,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default {
   props: ["verticalGraphData"],
-  mounted() {
-    this.animateGraph();
-  },
   methods: {
     animateGraph() {
       this.verticalGraphData.forEach((item, index) => {
@@ -34,17 +31,25 @@ export default {
           this.$refs[`item${index}`],
           {
             height: 0,
-           
           },
           {
+            scrollTrigger: {
+              trigger: this.$el,
+              start: "top 65%",
+              end: "bottom bottom",
+              markers: true,
+            },
             height: `${item}%`,
             duration: 0.5,
             ease: "power1.inOut",
-            delay: 0.1 * index, // Add a delay for each item
+            delay: 0.01 * index,
           }
         );
       });
     },
+  },
+  mounted() {
+    this.animateGraph();
   },
 };
 </script>
