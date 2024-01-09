@@ -133,7 +133,6 @@ export default {
   },
   mounted() {
     this.initScroll();
-    // this.initImageAnimation();
   },
 };
 </script>

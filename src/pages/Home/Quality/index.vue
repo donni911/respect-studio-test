@@ -20,7 +20,7 @@
       </div>
       <div class="w-[25.521vw] relative text-sxl leading-baseLg inline-flex flex-wrap justify-end" ref="title">
         Quality approach to
-        <span class="text-primary"> growing your business </span>
+        <span class="text-primary">growing your business </span>
       </div>
     </div>
     <GridIcons :color="'black'" :items="items" />

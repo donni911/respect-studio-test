@@ -34,7 +34,6 @@ export default {
   methods: {
     animateLines() {
       Array.from([1, 2]).forEach((el) => {
-        console.log(this.$refs[`line${el}`]);
         gsap.fromTo(
           this.$refs[`line${el}`],
           {

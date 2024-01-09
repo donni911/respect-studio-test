@@ -2,7 +2,7 @@
   <section class="px-[1.041vw] pb-[4.844vw]">
     <div class="mb-[5.208vw]">
       <!-- TODO: inherit span -->
-      <h2 class="leading-baseLg text-sxl mb-[3.438vw] inline-flex" ref="title">
+      <h2 class="leading-baseLg text-sxl mb-[3.438vw] inline-flex flex-wrap" ref="title">
         Let's fight cold <span class="text-primary">together</span>
       </h2>
       <p ref="description">

@@ -1,21 +1,23 @@
 <template>
-  <!-- <Banner :isPageLoaded="isPageLoaded" />-->
-  <main ref="mainSection" class="mt-[calc(100vh-4.531vw)] mb-[100vh]">
-    <Header />
-    <BigDescription />
-    <Graph />
-    <Partner />
-    <Contact />
-    <Leads />
-    <CaseStudies />
-    <Quality />
-    <About />
-  </main>
-  <!-- <Footer /> -->
-  <!-- <Loader @pageLoaded="pageLoaded" />-->
+  <!-- <div class="flex flex-col"> -->
+    <Banner :isPageLoaded="isPageLoaded" />
+    <main ref="mainSection" class="mt-[calc(100vh-4.531vw)] mb-[100vh]">
+      <Header />
+      <BigDescription />
+      <Graph />
+      <Partner />
+      <Contact />
+      <Leads />
+      <CaseStudies />
+      <Quality />
+      <About />
+    </main>
+    <Footer />
+  <!-- </div> -->
+  <!-- <Loader @pageLoaded="pageLoaded" /> -->
 </template>
 
-<!-- TODO: 1)images on scroll 2) footer 3) reveal by words inheritance 4) check all-->
+<!-- TODO: 2) footer 3) reveal by words inheritance 4) check all-->
 
 <script>
 import { translateUp } from "@/animations/transform.js";
@@ -58,9 +60,10 @@ export default {
   methods: {
     pageLoaded(val) {
       this.isPageLoaded = val;
-
       translateUp(this.$refs.mainSection);
     },
   },
+
+  mounted() {},
 };
 </script>

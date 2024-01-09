@@ -38,9 +38,10 @@
         </a>
       </div>
     </div>
-    <div>
+    <div class="overflow-hidden">
       <img
-        class="w-[40.104vw] h-[44.271vw] object-cover"
+        ref="image"
+        class="w-[40.104vw] h-[44.271vw] object-cover scale-[1.4]"
         src="/images/team/team-5.png"
         alt=""
       />
@@ -49,11 +50,13 @@
 </template>
 <script>
 import { fadeIn, revealByLetters } from "@/animations/textReveal.js";
+import { scaleImage } from "@/animations/transform.js";
 
 export default {
   mounted() {
+    scaleImage(this.$refs.image);
     revealByLetters(this.$refs.title);
-    fadeIn(this.$refs.subtitle);
+    fadeIn(this.$refs.btns);
     fadeIn(this.$refs.description);
   },
 };

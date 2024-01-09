@@ -4,16 +4,24 @@
       <div
         v-for="(item, index) in images"
         :key="index"
-        class="w-[20.469vw] h-[27.917vw] absolute top-[50%] translate-y-[-50%] translate-x-[-50%]"
+        class="w-[20.469vw] h-[27.917vw] overflow-hidden absolute top-[50%] translate-y-[-50%] translate-x-[-50%]"
         :class="imagePosition(index)"
       >
-        <img loading="lazy" :src="item.url" class="object-cover" alt="" />
+        <img
+          :src="item.url"
+          class="object-cover scale-[1.4]"
+          :alt="item.url"
+          :ref="`image${index}`"
+        />
       </div>
     </div>
     <div class="w-1/2">
       <div class="w-[34.063vw] ml-auto flex flex-col justify-center h-full">
         <div class="pl-[4.583vw] text-right">
-          <h4 class="inline-flex flex-wrap justify-end text-sxl mb-3.698vw leading-baseLg" ref="title">
+          <h4
+            class="inline-flex flex-wrap justify-end text-sxl mb-3.698vw leading-baseLg"
+            ref="title"
+          >
             Still not sure what service to choose?
           </h4>
           <p class="mt-[3.698vw]" ref="description">
@@ -59,20 +67,9 @@
 
 <script>
 import { revealByLetters, fadeIn } from "@/animations/textReveal.js";
+import { scaleImage } from "@/animations/transform.js";
 
 export default {
-  methods: {
-    imagePosition(id) {
-      switch (id) {
-        case 0:
-          return "left-[50%] z-10";
-        case 1:
-          return "left-[25%] ";
-        case 2:
-          return "left-[75%]";
-      }
-    },
-  },
   data() {
     return {
       images: [
@@ -92,7 +89,24 @@ export default {
     };
   },
 
+  methods: {
+    imagePosition(id) {
+      switch (id) {
+        case 0:
+          return "left-[50%] z-10 translate-y-[-50%]";
+        case 1:
+          return "left-[25%] translate-y-[-40%]";
+        case 2:
+          return "left-[75%] translate-y-[-60%]";
+      }
+    },
+  },
+
   mounted() {
+    Array.from([0, 1, 2]).forEach((index) => {
+      scaleImage(this.$refs[`image${index}`], this.$el);
+    });
+
     revealByLetters(this.$refs.title);
     fadeIn(this.$refs.inputBlock);
     fadeIn(this.$refs.description);
