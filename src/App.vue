@@ -1,7 +1,7 @@
 <template>
-  <main ref="main" class="z-[2] mb-[100vh]">
+  <main ref="main">
     <Banner :isPageLoaded="isPageLoaded" />
-    <Header />
+    <Header :isPageLoaded="isPageLoaded" />
     <BigDescription />
     <Graph />
     <Partner />
@@ -12,14 +12,10 @@
     <About />
   </main>
   <Footer />
-  <!--<Loader @pageLoaded="pageLoaded" />-->
+  <Loader @pageLoaded="pageLoaded" />
 </template>
 
-<!-- TODO: 2) footer 3) reveal by words inheritance 4) check all-->
-
 <script>
-import { translateUp } from "@/animations/transform.js";
-
 import Header from "./components/Header.vue";
 import Banner from "./pages/Home/Banner/index.vue";
 import BigDescription from "./pages/Home/BigDescription/index.vue";
@@ -58,8 +54,9 @@ export default {
   methods: {
     pageLoaded(val) {
       this.isPageLoaded = val;
-      translateUp(this.$refs.main);
     },
   },
+
+  
 };
 </script>

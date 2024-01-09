@@ -1,10 +1,10 @@
 import gsap from "gsap";
 
-export const translateUp = (el) => {
+export const translateUp = (el,from='15') => {
 	gsap.fromTo(
 		el,
 		{
-			translateY: "15%",
+			translateY: `${from}%`,
 		},
 		{
 			translateY: "0%",

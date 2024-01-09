@@ -1,5 +1,7 @@
 <template>
-  <header class="h-[4.531vw] mt-[calc(100vh-4.531vw)] z-20 bg-primary gap-10 p-[0.9375vw_1.041vw] flex">
+  <header
+    class="h-[4.531vw] mt-[calc(100vh-4.531vw)] bg-primary gap-10 p-[0.9375vw_1.041vw] flex"
+  >
     <a href="/" class="flex items-center w-[10%] ml-auto">
       <svg
         class="h-full w-auto"
@@ -52,6 +54,7 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -83,6 +86,7 @@ export default {
       ],
     };
   },
+
 };
 </script>
 

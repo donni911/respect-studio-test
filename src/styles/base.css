@@ -1,4 +1,3 @@
-.app,
 html,
 body {
   height: 100%;
@@ -6,7 +5,7 @@ body {
 
 body {
   overflow-x: hidden;
-  /* overflow-y: hidden; */
+  overflow-y: hidden;
   font-family: "Suisse";
   font-size: theme(fontSize.regular);
   color: theme(colors.black);
