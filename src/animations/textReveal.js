@@ -25,7 +25,7 @@ export const revealByLetters = (string) => {
 			stagger: 0.02,
 			scrollTrigger: {
 				trigger: el,
-				start: "top 95%",
+				start: "top 90%",
 				end: "bottom bottom",
 			},
 		});
@@ -54,7 +54,7 @@ export const revealByWords = (string) => {
 			ease: "step(1)",
 			scrollTrigger: {
 				trigger: string,
-				start: "top 95%",
+				start: "top 90%",
 				end: "bottom bottom",
 			},
 		},
@@ -73,7 +73,7 @@ export const fadeIn = (el, duration = 0.5) => {
 			ease: "power1.inOut",
 			scrollTrigger: {
 				trigger: el,
-				start: "top 95%",
+				start: "top 90%",
 				end: "bottom bottom",
 			},
 		},

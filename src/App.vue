@@ -1,20 +1,18 @@
 <template>
-  <!-- <div class="flex flex-col"> -->
+  <main ref="main" class="z-[2] mb-[100vh]">
     <Banner :isPageLoaded="isPageLoaded" />
-    <main ref="mainSection" class="mt-[calc(100vh-4.531vw)] mb-[100vh]">
-      <Header />
-      <BigDescription />
-      <Graph />
-      <Partner />
-      <Contact />
-      <Leads />
-      <CaseStudies />
-      <Quality />
-      <About />
-    </main>
-    <Footer />
-  <!-- </div> -->
-  <!-- <Loader @pageLoaded="pageLoaded" /> -->
+    <Header />
+    <BigDescription />
+    <Graph />
+    <Partner />
+    <Contact />
+    <Leads />
+    <CaseStudies />
+    <Quality />
+    <About />
+  </main>
+  <Footer />
+  <!--<Loader @pageLoaded="pageLoaded" />-->
 </template>
 
 <!-- TODO: 2) footer 3) reveal by words inheritance 4) check all-->
@@ -60,10 +58,8 @@ export default {
   methods: {
     pageLoaded(val) {
       this.isPageLoaded = val;
-      translateUp(this.$refs.mainSection);
+      translateUp(this.$refs.main);
     },
   },
-
-  mounted() {},
 };
 </script>

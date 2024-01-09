@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="hidden fixed bottom-0 w-full z-[-1] px-[1.041vw] pt-[3.125vw] pb-[1.563vw] bg-black h-[100vh]"
+    class="sticky bottom-0 w-full h-[100vh] mt-[-100vh] overflow-hidden z-[-1] px-[1.041vw] pt-[3.125vw] pb-[1.563vw]"
   >
     <div class="flex h-full w-full justify-between">
       <div class="flex flex-col justify-between items-start mr-[16.406vw]">
@@ -179,30 +179,38 @@
             <span>Book a call</span>
           </button>
         </div>
-        <a href="" class="text-primary">Designed by dops.digital</a>
+        <a href="https://dops.agency/" class="text-primary"
+          >Designed by dops.digital</a
+        >
       </div>
     </div>
   </footer>
+  <div>dsad</div>
+
 </template>
+
 <script>
-import gsap from "gsap";
+// import gsap from "gsap";
+// import ScrollTrigger from "gsap/ScrollTrigger";
+
+// gsap.registerPlugin(ScrollTrigger);
 
 export default {
   mounted() {
-    gsap.fromTo(
-      this.$el,
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: this.$el,
-          start: "top 100%",
-          end: "bottom bottom",
-        },
-      }
-    );
+    // gsap.fromTo(
+    //   this.$el,
+    //   {
+    //     opacity: 0,
+    //   },
+    //   {
+    //     opacity: 1,
+    //     scrollTrigger: {
+    //       trigger: this.$el,
+    //       start: "top 100%",
+    //       end: "bottom bottom",
+    //     },
+    //   }
+    // );
   },
 };
 </script>
